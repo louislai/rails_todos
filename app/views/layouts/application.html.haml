@@ -33,10 +33,13 @@
               %label Tags
         %section.main-section
           %hr
+          - flash.each do |message_type, message|
+            %div{:class => "alert-box #{message_type} radius"}= message
           .row.page-wrap
             .small-5.columns
               = yield
-            .small-4.small-centered.columns-offset=render 'layouts/quote'
+            .small-4.small-centered.columns-offset
+              =render 'layouts/quote'
           %hr
           = render 'layouts/footer'
         %a.exit-off-canvas
