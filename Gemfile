@@ -14,7 +14,6 @@ group :production do
   gem 'pg'
   gem 'rails_12factor', '0.0.2'
   gem 'unicorn',        '4.8.3'
-
 end
 
 # Random quote
