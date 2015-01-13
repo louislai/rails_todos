@@ -16,8 +16,8 @@
       <tr>
         <td><%= tasklist.title %></td>
         <td><%= tasklist.description %></td>
-        <td><%= link_to 'Show', tasklist %></td>
-        <td><%= link_to 'Edit', edit_tasklist_path(tasklist) %></td>
+        <td><%= link_to 'Show', user_tasklist %></td>
+        <td><%= link_to 'Edit', edit_user_tasklist_path(tasklist) %></td>
         <td><%= link_to 'Destroy', tasklist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Tasklist', new_tasklist_path %>
+<%= link_to 'New Tasklist', new_user_tasklist_path %>

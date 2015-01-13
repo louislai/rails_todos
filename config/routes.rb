@@ -1,15 +1,20 @@
 Rails.application.routes.draw do
-  resources :users
+  get 'sessions/new'
 
-  resources :tags
-
-  resources :tasklists do
+  resources :users do
+    resources :tasklists
     resources :tasks
+    resources :tags
   end
 
-  get 'signup' => 'users#new'
+  
 
-  root 'tasklists#index'
+  get 'signup' => 'users#new'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+
+  root 'sessions#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

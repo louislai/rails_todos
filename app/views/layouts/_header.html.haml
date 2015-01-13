@@ -1,5 +1,18 @@
 .contain-to-grid.sticky
   %nav.top-bar{"data-options" => "sticky_on: large", "data-topbar" => "", :role => "navigation"}
     %section.top-bar-section
-      %ul.right
-        %li.active= link_to "Sign up", signup_path
+      %ul.right   
+        - if logged_in?
+          %li= link_to "Users", '#'
+          %li.has-dropdown
+            %a.dropdown-toggle{:href => "#"}
+              Account  
+            %ul.dropdown
+              %li= link_to "Profile", current_user
+              %li= link_to "Settings", '#'
+              %li.divider
+              %li
+                = link_to "Log out", logout_path, method: "delete"
+        - else
+          %li= link_to "Log in", login_path
+          %li= link_to "Sign up", signup_path

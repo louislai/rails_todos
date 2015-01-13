@@ -21,8 +21,9 @@
       .inner-wrap
         %nav.tab-bar
           %section.left-small
-            %a.left-off-canvas-toggle.menu-icon{:href => "#"}
-              %span
+            - if logged_in?
+              %a.left-off-canvas-toggle.menu-icon{:href => "#"}
+                %span
           %section.middle.tab-bar-section
             = render 'layouts/header'
         %aside.left-off-canvas-menu

@@ -1,0 +1,10 @@
+- provide(:title, "Log in")
+    
+= simple_form_for(:session, url: login_path) do |f|
+  = field_set_tag "Log in" do
+    = f.input :email
+    = f.input :password, required: true
+    =f.button :submit, value: "Log In"
+
+%p
+  New user? #{link_to "Sign up now!", signup_path}
