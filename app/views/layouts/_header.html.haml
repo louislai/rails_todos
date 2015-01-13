@@ -1,3 +1,5 @@
-.panel.text-center
-  %h2
-    TODO MANAGER
+.contain-to-grid.sticky
+  %nav.top-bar{"data-options" => "sticky_on: large", "data-topbar" => "", :role => "navigation"}
+    %section.top-bar-section
+      %ul.right
+        %li.active= link_to "Sign up", signup_path

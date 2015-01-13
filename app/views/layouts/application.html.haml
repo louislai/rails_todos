@@ -5,7 +5,7 @@
 
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
 
-    %title= content_for?(:title) ? yield(:title) : "Untitled"
+    %title= content_for?(:title) ? yield(:title) : "TODO MANAGER"
     = render 'layouts/shim'
 
     = stylesheet_link_tag "application"
@@ -13,10 +13,34 @@
     = javascript_include_tag "application"
     = csrf_meta_tag
 
+
   %body
-    = render 'layouts/header'
-    = yield
-    = render 'layouts/footer'
+    .panel.text-center
+      %h2 TODO MANAGER
+    .off-canvas-wrap{"data-offcanvas" => ""}
+      .inner-wrap
+        %nav.tab-bar
+          %section.left-small
+            %a.left-off-canvas-toggle.menu-icon{:href => "#"}
+              %span
+          %section.middle.tab-bar-section
+            = render 'layouts/header'
+        %aside.left-off-canvas-menu
+          %ul.off-canvas-list
+            %li
+              %label Notebooks
+            %li
+              %label Tags
+        %section.main-section
+          %hr
+          .row.page-wrap
+            .small-5.columns
+              = yield
+            .small-4.small-centered.columns-offset=render 'layouts/quote'
+          %hr
+          = render 'layouts/footer'
+        %a.exit-off-canvas
+    
 
 
 

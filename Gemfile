@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'foundation-rails'
 gem 'haml-rails'
 gem 'simple_form'
+gem 'compass-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -13,6 +14,9 @@ group :production do
   gem 'pg'
   gem 'rails_12factor', '0.0.2'
 end
+
+# Random quote
+gem 'quoth'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
