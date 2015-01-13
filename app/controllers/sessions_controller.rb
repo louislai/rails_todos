@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     user = User.where('lower(email) = ?', params[:session][:email].downcase).first
     if user && user.authenticate(params[:session][:password])
       log_in user
+      remember user
       redirect_to user_tasks_path(user_id: session[:user_id])
     else
       flash.now[:alert] = 'Invalid email/password combination'
