@@ -5,7 +5,7 @@
 
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
 
-    %title= content_for?(:title) ? yield(:title) : "TODO MANAGER"
+    %title= content_for?(:title) ? yield(:title) : "ISPIRATORE"
     = render 'layouts/shim'
 
     = stylesheet_link_tag "application"
@@ -16,7 +16,7 @@
 
   %body
     .panel.text-center
-      %h2 TODO MANAGER
+      %h2 ISPIRATORE
     .off-canvas-wrap{"data-offcanvas" => ""}
       .inner-wrap
         %nav.tab-bar
