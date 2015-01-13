@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150109164648) do
+ActiveRecord::Schema.define(version: 20150113064635) do
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
@@ -49,12 +49,14 @@ ActiveRecord::Schema.define(version: 20150109164648) do
   add_index "tasks", ["tasklist_id"], name: "index_tasks_on_tasklist_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "username"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "email"
+    t.string   "password_digest"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
