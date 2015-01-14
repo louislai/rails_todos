@@ -3,13 +3,6 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update]
   before_action :correct_user,   only: [:edit, :update]
 
-  attr_accessor :remember_token
-
-  # GET /users
-  # GET /users.json
-  def index
-    @users = User.all
-  end
 
   # GET /users/1
   # GET /users/1.json
@@ -59,47 +52,16 @@ class UsersController < ApplicationController
       end
     end
   end
+  
 
-  # DELETE /users/1
-  # DELETE /users/1.json
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
-  # Forgets a user.
-  def forget
-    update_attribute(:remember_digest, nil)
-  end
-
-
-  # Remembers a user in the database for use in persistent sessions.
-  def remember
-    self.remember_token = User.new_token
-    update_attribute(:remember_digest, User.digest(remember_token))
-  end
-
-  # Returns the hash digest of the given string.
-    def User.digest(string)
-      cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                    BCrypt::Engine.cost
-      BCrypt::Password.create(string, cost: cost)
-    end
-
-    # Returns a random token.
-    def User.new_token
-      SecureRandom.urlsafe_base64
-    end
-
-    # Returns true if the given token matches the digest.
-  def authenticated?(remember_token)
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
-  end
 
   private
+    # Returns true if the given token matches the digest.
+    def authenticated?(remember_token)
+      BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    end
+
+    private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
@@ -124,4 +86,4 @@ class UsersController < ApplicationController
       redirect_to(edit_user_path(current_user)) unless current_user?(@user)
     end
 
-end
+  end

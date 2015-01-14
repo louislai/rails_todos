@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require randomquotes
+//= require active_topbar
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

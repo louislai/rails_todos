@@ -1,18 +1,21 @@
-.contain-to-grid.sticky
-  %nav.top-bar{"data-options" => "sticky_on: large", "data-topbar" => "", :role => "navigation"}
-    %section.top-bar-section
-      %ul.right   
-        - if logged_in?
-          %li= link_to "Users", '#'
-          %li.has-dropdown
-            %a.dropdown-toggle{:href => "#"}
-              Account  
-            %ul.dropdown
-              %li= link_to "Profile", current_user
-              %li= link_to "Settings", edit_user_path(current_user)
-              %li.divider
-              %li
-                = link_to "Log out", logout_path, method: "delete"
-        - else
-          %li= link_to "Log in", login_path
-          %li= link_to "Sign up", signup_path
+%nav.top-bar{"data-topbar" => "", :role => "navigation"}
+  %section.top-bar-section
+    %ul.right   
+      - if logged_in?
+        %li.has-dropdown
+          %a.dropdown-toggle{:href => "#"}
+            Tasks
+          %ul.dropdown
+            %li= link_to "All tasks", user_tasks_path(user_id: session[:user_id])
+        %li.has-dropdown
+          %a.dropdown-toggle{:href => "#"}
+            Account  
+          %ul.dropdown
+            %li= link_to "Profile", current_user
+            %li= link_to "Settings", edit_user_path(current_user)
+            %li.divider
+            %li
+              = link_to "Log out", logout_path, method: "delete"
+      - else
+        %li#login= link_to "Log in", login_path
+        %li#signup= link_to "Sign up", signup_path
