@@ -38,9 +38,9 @@
           - flash.each do |message_type, message|
             %div{:class => "alert-box #{message_type} radius"}= message
           .row.page-wrap
-            .small-5.columns
+            .small-7.columns
               = yield
-            .small-4.small-centered.columns-offset
+            .small-3.small-centered.columns-offset
               =render 'layouts/quote'
           %hr
           = render 'layouts/footer'

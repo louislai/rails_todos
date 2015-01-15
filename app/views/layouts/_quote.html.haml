@@ -1,7 +1,6 @@
-%br
 .border
   %p.text-center#randomQuote
     - quote = Quoth.get
-    - while (quote.length > 5000) do 
+    - while (quote.length > 3000) do 
       - quote = Quoth.get
     = quote

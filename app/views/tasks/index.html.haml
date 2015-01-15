@@ -2,13 +2,24 @@
 %h1 Tasks
 %table
   %tbody
-    - @tasks.each do |task|
-      %tr
-        %td= task.task
-        %td= task.tasklist
-        %td= task.deadline
-        %td= link_to 'Show', user_task_path(current_user, task)
-        %td= link_to icon('edit'), edit_user_task_path(current_user, task)
-        %td= link_to icon('trash'), [current_user, task], method: :delete, data: { confirm: 'Are you sure?' }
+    - if @tasks.empty?
+      %span There are no tasks!
+    - else
+      %table
+        %thead
+          %th{width: "300"} Task
+          %th{width: "5000"} Created at
+          %th{width: "300"} Tasklist
+          %th{width: "300"} Deadline
+        %tbody
+          - @tasks.each do |task|
+            %tr
+              %td= task.task
+              %td= task.created_at
+              %td= task.tasklist || "Nil"
+              %td= task.deadline || "Nil"
+              %td= link_to 'Show', user_task_path(current_user, task)
+              %td= link_to icon('edit'), edit_user_task_path(current_user, task)
+              %td= link_to icon('trash'), [current_user, task], method: :delete, data: { confirm: 'Are you sure?' }
 %br
   = link_to 'New Task', new_user_task_path
