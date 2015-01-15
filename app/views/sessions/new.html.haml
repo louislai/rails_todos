@@ -4,7 +4,9 @@
   = field_set_tag "Log in" do
     = f.input :email
     = f.input :password, required: true
-    =f.button :submit, value: "Log In"
+    = f.input :remember_me, required: false, as: :boolean, boolean_style: :inline
+    = f.button :submit, value: "Log In"
+    
 
 %p
   New user? #{link_to " Sign up now!", signup_path}

@@ -1,0 +1,14 @@
+%p#notice= notice
+%h1 Tasks
+%table
+  %tbody
+    - @tasks.each do |task|
+      %tr
+        %td= task.task
+        %td= task.tasklist
+        %td= task.deadline
+        %td= link_to 'Show', user_task_path(current_user, task)
+        %td= link_to icon('edit'), edit_user_task_path(current_user, task)
+        %td= link_to icon('trash'), [current_user, task], method: :delete, data: { confirm: 'Are you sure?' }
+%br
+  = link_to 'New Task', new_user_task_path

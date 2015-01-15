@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	has_many :tasklists, inverse_of: :user, dependent: :destroy
-	has_many :tasks, through: :tasklist, dependent: :destroy
+	has_many :tasks, dependent: :destroy
 	has_many :tags, dependent: :destroy
 
   validates :email, :first_name, :last_name, presence: true
@@ -20,6 +20,11 @@ class User < ActiveRecord::Base
     update_attribute(:remember_digest, nil)
   end
 
+  # Returns true if the given token matches the digest.
+  def authenticated?(remember_token)
+    return false if remember_digest.nil?
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
 
   # Remembers a user in the database for use in persistent sessions.
   def remember

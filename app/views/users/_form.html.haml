@@ -4,7 +4,7 @@
     = f.input :email
     = f.input :first_name
     = f.input :last_name
-    = f.input :password, required: true
+    = f.input :password, required: true, hint: "Password needs to be at least 8 characters long"
     = f.input :password_confirmation, required: true
 
     =f.button :submit, value: submit_value

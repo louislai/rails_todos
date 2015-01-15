@@ -1,6 +1,6 @@
 <h1>Editing Task</h1>
 
-<%= render 'form' %>
+<%= render 'form', mode: :edit, submit_value: "Edit" %>
 
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasklists_tasks_path %>
+<%= link_to 'Show', [current_user, @task] %> |
+<%= link_to 'Back', user_tasks_path(current_user) %>

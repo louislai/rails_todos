@@ -12,10 +12,14 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery.datetimepicker
  *= require foundation_and_overrides
 
  */
 /* Make footer sticky */
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 .footer {
   position: fixed;
   margin-bottom: 0;

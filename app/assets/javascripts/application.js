@@ -13,8 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require randomquotes
-//= require active_topbar
+//= require jquery.datetimepicker
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(document).ready(function(){
+  $('.datetimepicker').datetimepicker({
+    format: 'd/m/Y H:i'
+  });
+});
