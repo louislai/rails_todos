@@ -13,13 +13,14 @@
  *= require_tree .
  *= require_self
  *= require jquery.datetimepicker
+ *= require font-awesome
  *= require foundation_and_overrides
 
  */
-/* Make footer sticky */
-@import "font-awesome-sprockets";
+
 @import "font-awesome";
 
+/* Make footer fixed to bottom */
 .footer {
   position: fixed;
   margin-bottom: 0;
@@ -60,20 +61,52 @@
   }
 }
 
-#randomQuote {
+#inspirator{
+  cursor: pointer;
+}
+
+/* Put heading overlaying a*/
+@mixin middle() {
+  background-color: #000;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+h6#inspirator_wrapper {
+  overflow: hidden;
+  text-align: center;
+  &:before {
+    @include middle();
+    width: 50%;
+    right: 0.5em;
+    margin-left: -50%;
+  }
+  &:after {
+    @include middle();
+    width: 50%;
+    left: 0.5em;
+    margin-right: -50%;
+  }
+}
+
+
+/*#randomQuote {
     position: absolute;
     left: 80%;
     top: 50%;
 
-    /*
+    
     *  Where the magic happens
     *  Centering method from CSS Tricks
     *  http://css-tricks.com/centering-percentage-widthheight-elements/
-    */
+    
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
 }
-
+*/
 

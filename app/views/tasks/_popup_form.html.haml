@@ -1,0 +1,15 @@
+- @task = current_user.tasks.new
+
+= form_for(@task, url: {action: :create}, html: {class: "row collapse"}) do |f|
+  - if @task.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@task.errors.count, "error")
+        prohibited this task from being saved:
+      %ul
+        - @task.errors.full_messages.each do |message|
+          %li= message
+  .small-10.columns
+    = f.text_field :task
+  .small-2.columns
+    %a{id: "task_submit_dummy", href: "#", class: "button postfix"} New Task

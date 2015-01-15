@@ -1,6 +1,6 @@
-.border
-  %p.text-center#randomQuote
+
+%p.text-center#randomQuote{hidden: true}
+  - quote = Quoth.get
+  - while (quote.length > 3000) do 
     - quote = Quoth.get
-    - while (quote.length > 3000) do 
-      - quote = Quoth.get
-    = quote
+  = quote

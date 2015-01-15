@@ -22,4 +22,12 @@ $(document).ready(function(){
   $('.datetimepicker').datetimepicker({
     format: 'd/m/Y H:i'
   });
+
+  $('#task_submit_dummy').click(function() {
+    $('form#new_task').submit();
+  });
+
+  $('#inspirator').click(function() {
+    $('#randomQuote').slideToggle();
+  })
 });
