@@ -3,9 +3,25 @@ $(document).ready(function() {
   // Retrieve current Pathname
   path = $(location).attr("pathname");
   
-  // Removes everything before and including the first /
-  page = path.split("/")[1];
-  
-  // Make sure we are working console.log page
+  // Get active page
+  pages = path.split("/");
+  page = check_page(pages);
+  // Active the tab
   $("#" + page).addClass("active");
 });
+
+function check_page(pages) {
+  for (index = pages.length - 1; index >= 0; --index) {
+    switch(pages[index]) {
+      case "login":
+        return "login";
+      case "signup":
+        return "signup";
+      case "users": 
+        return "users";
+      case "tasks":
+        return "tasks";
+    }
+  }
+  return "login";
+}

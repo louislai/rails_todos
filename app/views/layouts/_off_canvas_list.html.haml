@@ -1,0 +1,7 @@
+%ul.off-canvas-list
+  %li
+    %label Tags
+  - tags = current_user.tags.all
+  - tags.each do |tag|
+    %li
+      = tag.name

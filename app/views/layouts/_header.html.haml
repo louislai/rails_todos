@@ -3,7 +3,7 @@
     %ul.right   
       - if logged_in?
         
-        %li.has-dropdown
+        %li.has-dropdown#tasks
           %a.dropdown-toggle{:href => "#"}
             Tasks
           %ul.dropdown
@@ -11,7 +11,7 @@
         %li.has-dropdown
           %a.dropdown-toggle{:href => "#"}
             Tags
-        %li.has-dropdown
+        %li.has-dropdown#users
           %a.dropdown-toggle{:href => "#"}
             Account  
           %ul.dropdown

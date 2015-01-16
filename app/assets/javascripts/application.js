@@ -12,8 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require foundation
 //= require jquery.datetimepicker
+//= require foundation-datepicker
+//= require jquery-popover
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
@@ -23,11 +26,39 @@ $(document).ready(function(){
     format: 'd/m/Y H:i'
   });
 
+  // For quick add task form submission
   $('#task_submit_dummy').click(function() {
-    $('form#new_task').submit();
+    $('form#quick_add_task').submit();
   });
 
+  // Open quote
   $('#inspirator').click(function() {
     $('#randomQuote').slideToggle();
   })
+
+  // Toggle quick add task
+  $('#quick_add').click(function() {
+    $('#quick_add_task').slideToggle();
+    event.stopPropagation();
+  })
+
+  // Pending task area
+  $('#pending_toggle').click(function() {
+    $('#pending').slideToggle();
+  })
+
+  // Toggle tag input popover form
+  $('#tag_trigger').popover({
+    my: 'center top',
+    at: 'center bottom',
+    offset: '-5px -50px'
+  });
+
+  // Toggle calendar input popover form
+  $('#calendar_trigger').popover({
+    my: 'center top',
+    at: 'center bottom',
+    offset: '-5px -50px'
+  });
+  
 });

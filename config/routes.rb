@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [:index, :destroy] do
     resources :tasklists
-    resources :tasks
+    resources :tasks, except: :show
     resources :tags
   end
 

@@ -1,15 +1,21 @@
 - @task = current_user.tasks.new
 
-= form_for(@task, url: {action: :create}, html: {class: "row collapse"}) do |f|
-  - if @task.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@task.errors.count, "error")
-        prohibited this task from being saved:
-      %ul
-        - @task.errors.full_messages.each do |message|
-          %li= message
-  .small-10.columns
-    = f.text_field :task
-  .small-2.columns
-    %a{id: "task_submit_dummy", href: "#", class: "button postfix"} New Task
+= form_for(@task, url: {action: :create}, html: {class: "row collapse", hidden: false, id: "quick_add_task"}) do |f|
+  .small-1.columns
+    %a#tag_trigger.button.prefix.radius{href: "#popovertag"}
+      %i.fa.fa-tags.white
+  .small-1.columns
+    %a#calendar_trigger.button.prefix{href: "#popovercalendar"}
+      %i.fa.fa-calendar.white
+  .small-9.columns
+    = f.text_field :task, placeholder: "Write a quick task here"
+  #popovercalendar.popover
+    .small-12.columns
+      = f.text_field :deadline, value: nil, as: :string, input_html: {class: "datetimepicker"}
+  #popovertag.popover
+    .small-12.columns
+      = f.text_field :all_tags, placeholder: 'Add some tags'
+  .small-1.columns
+    .button.postfix.radius#task_submit_dummy
+      %i.fa.fa-plus
+

@@ -12,7 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui
  *= require jquery.datetimepicker
+ *= require foundation-datepicker
  *= require font-awesome
  *= require foundation_and_overrides
 
@@ -61,7 +63,7 @@
   }
 }
 
-#inspirator{
+#inspirator, #pending_toggle{
   cursor: pointer;
 }
 
@@ -92,7 +94,15 @@ h6#inspirator_wrapper {
   }
 }
 
+// Style tag input box popover
 
+#popovertag {
+  position: absolute
+}
+
+.white {
+  color: inherit;
+}
 /*#randomQuote {
     position: absolute;
     left: 80%;

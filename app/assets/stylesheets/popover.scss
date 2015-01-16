@@ -1,0 +1,17 @@
+/* Required style */
+.popover {
+  position: absolute;
+}
+
+/* Aesthetic styles */
+.popover {
+  z-index:99999;
+  background: transparent;
+  color: transparent;
+  -moz-border-radius: 5px; /* FF1+ */
+  -webkit-border-radius: 5px; /* Saf3+, Chrome */
+  -khtml-border-radius: 5px; /* Konqueror */
+  border-radius: 5px; /* Standard. IE9 */
+  padding: 10px;
+  width: 200px;
+}

@@ -1,27 +1,33 @@
 %p#notice= notice
 %h1 Tasks
-=render "popup_form", mode: :new
+%ul.button-group.round
+  %li= link_to 'New Task', new_user_task_path, class: "button tiny"
+  %li#quick_add
+    .button.tiny
+      %i.fa.fa-arrow-down
+=render "popup_form"
+.alert-box.warning#pending_toggle.radius Pending Tasks
 - if @tasks.empty?
   %span There are no tasks!
 - else
-  %table
-    %thead
-      %th{width: "30%"} Task
-      %th{width: "65%"} Deadline
-      %th{width: "30%"} Actions
+  %table#pending.radius
     %tbody
       - @tasks.each do |task|
         %tr
-          %td= task.task
-          %td= task.deadline || "Nil"
-          %td
+          %td{width: "30%"}= task.task
+          %td{width: "60%"}= task.deadline || "No Deadline"
+          %td= task.all_tags
+          %td{width: "35%"}
             %ul.inline-list
-              %li= link_to 'Show', user_task_path(current_user, task)
               %li
                 = link_to edit_user_task_path(current_user, task) do
                   %i.fa.fa-edit
               %li
                 = link_to [current_user, task], method: :delete, data: { confirm: 'Are you sure?' } do
                   %i.fa.fa-trash
+              %li
+                %i.fa.fa-tags
 %br
-  = link_to 'New Task', new_user_task_path
+.alert-box.success.radius Completed Tasks
+   
+  

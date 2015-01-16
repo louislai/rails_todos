@@ -28,11 +28,7 @@
           %section.middle.tab-bar-section
             = render 'layouts/header'
         %aside.left-off-canvas-menu
-          %ul.off-canvas-list
-            %li
-              %label Notebooks
-            %li
-              %label Tags
+          = render 'layouts/off_canvas_list'
         %section.main-section
           %hr
           = render 'layouts/inspirator'
@@ -46,7 +42,7 @@
         %a.exit-off-canvas
 
     .debug-dump= debug(params) if Rails.env.development?
-    .debug-dump= debug(cookies[:remember_token]) +  debug(cookies[:user_id]) if Rails.env.development?
+    .debug-dump= 'Tags       ' + debug(current_user.tags) if Rails.env.development?
     
 
 
