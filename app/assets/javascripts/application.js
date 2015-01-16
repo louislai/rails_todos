@@ -31,6 +31,11 @@ $(document).ready(function(){
     $('form#quick_add_task').submit();
   });
 
+  $('#task_task').keydown(function (e){
+    if(e.keyCode == 13){
+      $('form#quick_add_task').submit();
+    }
+})
   // Open quote
   $('#inspirator').click(function() {
     $('#randomQuote').slideToggle();

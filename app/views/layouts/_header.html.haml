@@ -8,9 +8,6 @@
             Tasks
           %ul.dropdown
             %li= link_to "All tasks", user_tasks_path(user_id: session[:user_id])
-        %li.has-dropdown
-          %a.dropdown-toggle{:href => "#"}
-            Tags
         %li.has-dropdown#users
           %a.dropdown-toggle{:href => "#"}
             Account  

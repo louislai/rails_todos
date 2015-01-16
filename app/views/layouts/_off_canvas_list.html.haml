@@ -4,4 +4,4 @@
   - tags = current_user.tags.all
   - tags.each do |tag|
     %li
-      = tag.name
+      %a{href: '#'}=tag.name

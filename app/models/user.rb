@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :tasklists, inverse_of: :user, dependent: :destroy
 	has_many :tasks, dependent: :destroy
-	has_many :tags, dependent: :destroy
+	has_many :tags, dependent: :destroy, through: :tasks
 
   validates :email, :first_name, :last_name, presence: true
   validates :first_name, :last_name, length: { maximum: 50 }
