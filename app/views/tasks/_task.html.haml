@@ -1,7 +1,7 @@
 
 %tr
   %td.toggle_complete{width: "5%"}
-    = best_in_place [current_user, task], :completed, as: :checkbox, collection: [raw('<i class="fa fa-square-o"></i>'), raw('<i class="fa fa-check-square-o"></i>')]
+    .yeah= best_in_place [current_user, task], :completed, as: :checkbox, collection: [raw('<i class="fa fa-square-o"></i>'), raw('<i class="fa fa-check-square-o"></i>')]
   %td{width: "25%"}
     = best_in_place [current_user, task], :task
   %td{width: "40%"}
