@@ -39,12 +39,19 @@ $(document).ready(function(){
   // /* Activating Best In Place */
   // jQuery(".best_in_place").best_in_place();
 
-  $('#completed').on('ajax:success', '[data-bip-attribute="completed"]', function(e, data, status, xhr) {
-    $(e.target).closest('tr').prependTo('#pending tbody').slideDown()
+  $('#completed').on('ajax:success', '[data-bip-attribute="completed"]', function(e) {
+    var row = $(e.target).closest('tr');
+    row.prependTo('#pending tbody').slideDown();
+
   });
 
-  $('#pending').on('ajax:success', '[data-bip-attribute="completed"]', function(e, data, status, xhr) {
-    $(e.target).closest('tr').prependTo('#completed tbody').slideDown()
+  $('#pending').on('ajax:success', '[data-bip-attribute="completed"]', function(e) {
+    var row = $(e.target).closest('tr');
+    row.prependTo('#completed tbody').slideDown();
   });
+
+  
   
 });
+
+$('.best_in_place').best_in_place();

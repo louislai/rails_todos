@@ -7,7 +7,7 @@
   %td{width: "40%"}
     = best_in_place [current_user, task], :deadline, as: :date
   %td{width: "40%"}
-    = best_in_place [current_user, task], :all_tags
+    = best_in_place [current_user, task], :all_tags, :nil => "No Tags"
   %td{width: "35%"}
     %ul.inline-list
       %li

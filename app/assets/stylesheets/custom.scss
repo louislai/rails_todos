@@ -1,3 +1,19 @@
+
+
 #completed_toggle {
   cursor: pointer;
+}
+
+.rounded_top {
+  -moz-border-radius-topright: 20px;
+  border-top-right-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  border-top-left-radius: 20px;
+}
+
+.rounded_bottom {
+  -moz-border-radius-bottomright: 20px;
+  border-bottom-right-radius: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  border-bottom-left-radius: 20px;
 }
