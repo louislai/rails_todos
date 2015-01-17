@@ -1,0 +1,15 @@
+
+%tr
+  %td{width: "30%"}= task.task
+  %td{width: "60%"}= task.deadline || "No Deadline"
+  %td= task.all_tags
+  %td{width: "35%"}
+    %ul.inline-list
+      %li
+        = link_to edit_user_task_path(current_user, task) do
+          %i.fa.fa-edit
+      %li
+        = link_to [current_user, task], method: :delete, data: { confirm: 'Are you sure?' } do
+          %i.fa.fa-trash
+      %li
+        %i.fa.fa-tags

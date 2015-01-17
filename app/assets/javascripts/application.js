@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= best_in_place
 //= require jquery_ujs
 //= require jquery-ui
 //= require foundation
@@ -65,5 +66,8 @@ $(document).ready(function(){
     at: 'center bottom',
     offset: '-5px -50px'
   });
+
+  /* Activating Best In Place */
+  jQuery(".best_in_place").best_in_place();
   
 });
