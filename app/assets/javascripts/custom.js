@@ -41,16 +41,20 @@ $(document).ready(function(){
 
   $('#completed').on('ajax:success', '[data-bip-attribute="completed"]', function(e) {
     var row = $(e.target).closest('tr');
-    row.prependTo('#pending tbody').slideDown();
+    row.prependTo('#pending_tbl tbody').slideDown();
+    $('#completed_count').html(parseInt($('#completed_count').html()) - 1);
+    $('#pending_count').html(parseInt($('#pending_count').html()) + 1);
 
   });
 
   $('#pending').on('ajax:success', '[data-bip-attribute="completed"]', function(e) {
     var row = $(e.target).closest('tr');
-    row.prependTo('#completed tbody').slideDown();
+    row.prependTo('#completed_tbl tbody').slideDown();
+    $('#pending_count').html(parseInt($('#pending_count').html()) - 1);
+    $('#completed_count').html(parseInt($('#completed_count').html()) + 1);
   });
 
-  
+
   
 });
 
