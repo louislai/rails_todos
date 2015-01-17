@@ -14,11 +14,8 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require foundation
-<<<<<<< HEAD
-=======
 //= require jquery.datetimepicker
 //= require foundation-datepicker
->>>>>>> parent of facbaa2... Use native rails datepicker
 //= require jquery-popover
 //= require_tree .
 

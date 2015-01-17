@@ -7,8 +7,9 @@
       %ul
         - @task.errors.full_messages.each do |message|
           %li= message
-  = f.input :task, input_html: {style: 'width: 86.5%'}
-  = f.input :deadline, value: nil, as: :string, input_html: {class: "datetimepicker", style: 'width: 80%'}
+  = f.input :task, input_html: {style: 'width: 76%'}
+  = f.input :all_tags, input_html: {style: 'width: 76%'}
+  = f.input :deadline, input_html: {style: 'width: 25%'}
   %br
   %br
   = f.button :submit, value: submit_value
