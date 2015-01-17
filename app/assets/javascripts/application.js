@@ -11,9 +11,10 @@
 // about supported directives.
 //
 //= require jquery
-//= best_in_place
 //= require jquery_ujs
 //= require jquery-ui
+//= require jquery.purr
+//= require best_in_place
 //= require foundation
 //= require jquery.datetimepicker
 //= require foundation-datepicker

@@ -1,6 +1,8 @@
 %ul.off-canvas-list
   %li
     %label Tags
+  %li
+    %a{href: "#"} All Tags
   - tags = current_user.tags.all
   - tags.each do |tag|
     %li
