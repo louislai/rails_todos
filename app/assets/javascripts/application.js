@@ -16,17 +16,12 @@
 //= require jquery.purr
 //= require best_in_place
 //= require foundation
-//= require jquery.datetimepicker
-//= require foundation-datepicker
 //= require jquery-popover
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
 
 $(document).ready(function(){
-  $('.datetimepicker').datetimepicker({
-    format: 'd/m/Y H:i'
-  });
 
   // For quick add task form submission
   $('#task_submit_dummy').click(function() {
@@ -51,7 +46,7 @@ $(document).ready(function(){
 
   // Pending task area
   $('#pending_toggle').click(function() {
-    $('#pending').slideToggle();
+    $('#pending').slideToggle(500);
   })
 
   // Toggle tag input popover form

@@ -4,14 +4,8 @@
   .small-1.columns
     %a#tag_trigger.button.prefix.radius{href: "#popovertag"}
       %i.fa.fa-tags.white
-  .small-1.columns
-    %a#calendar_trigger.button.prefix{href: "#popovercalendar"}
-      %i.fa.fa-calendar.white
-  .small-9.columns
+  .small-10.columns
     = f.text_field :task, placeholder: "Write a quick task here"
-  #popovercalendar.popover
-    .small-12.columns
-      .panel= f.input :deadline, start: nil, include_blank: true, input_html: {style: 'width: 30%'}
   #popovertag.popover
     .small-12.columns
       = f.text_field :all_tags, placeholder: 'Add some tags'

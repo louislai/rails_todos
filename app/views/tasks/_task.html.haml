@@ -1,6 +1,8 @@
 
 %tr
-  %td{width: "30%"}
+  %td{width: "5%"}
+    = best_in_place [current_user, task], :completed, as: :check_box, collection: [raw('<i class="fa fa-square-o"></i>'), raw('<i class="fa fa-check-square-o"></i>')]
+  %td{width: "25%"}
     = best_in_place [current_user, task], :task
   %td{width: "40%"}= task.deadline || "No Deadline"
   %td{width: "20%"}
