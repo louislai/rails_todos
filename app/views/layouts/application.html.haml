@@ -26,9 +26,9 @@
               %a.left-off-canvas-toggle.menu-icon{:href => "#"}
                 %span
           %section.middle.tab-bar-section
-            = render 'layouts/header' if logged_in?
+            = render 'layouts/header' 
         %aside.left-off-canvas-menu
-          = render 'layouts/off_canvas_list'
+          = render 'layouts/off_canvas_list' if logged_in?
         %section.main-section
           %hr
           = render 'layouts/inspirator'
