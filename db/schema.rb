@@ -41,10 +41,11 @@ ActiveRecord::Schema.define(version: 20150116045445) do
   add_index "tasklists", ["user_id"], name: "index_tasklists_on_user_id"
 
   create_table "tasks", force: :cascade do |t|
-    t.datetime "deadline"
+    t.date     "deadline"
+    t.boolean  "completed",  default: false
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "task"
   end
 

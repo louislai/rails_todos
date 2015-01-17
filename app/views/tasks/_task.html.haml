@@ -1,6 +1,7 @@
 
 %tr
-  %td{width: "30%"}= task.task
+  %td{width: "30%"}
+    = best_in_place [current_user, task], :task, as: :input
   %td{width: "60%"}= task.deadline || "No Deadline"
   %td= task.all_tags
   %td{width: "35%"}

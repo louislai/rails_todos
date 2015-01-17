@@ -35,14 +35,12 @@ class TasksController < ApplicationController
 
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
+
   def update
+    set_task
     respond_to do |format|
-      if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task }
-      else
-        format.html { render :edit }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+      if @task.update!(task_params) 
+        format.json { respond_with_bip(@ttask) }
       end
     end
   end
@@ -68,6 +66,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:task, :deadline, :all_tags)
+      params.require(:task).permit(:task, :deadline, :all_tags, :completed)
     end
 end

@@ -40,11 +40,6 @@
           %hr
           = render 'layouts/footer'
         %a.exit-off-canvas
-    - tasks = current_user.tasks.all
-    - tasks.each do |task|
-      - tags = task.tags.all
-      - tags.each do |tag|
-        %p=tag.name
     .debug-dump= debug(params) if Rails.env.development?
     
 
