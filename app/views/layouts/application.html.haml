@@ -26,7 +26,7 @@
               %a.left-off-canvas-toggle.menu-icon{:href => "#"}
                 %span
           %section.middle.tab-bar-section
-            = render 'layouts/header'
+            = render 'layouts/header' if logged_in?
         %aside.left-off-canvas-menu
           = render 'layouts/off_canvas_list'
         %section.main-section
@@ -40,13 +40,7 @@
           %hr
           = render 'layouts/footer'
         %a.exit-off-canvas
-    - tasks = current_user.tasks.all
-    - tasks.each do |task|
-      - tags = task.tags.all
-      - tags.each do |tag|
-        %p=tag.name
     .debug-dump= debug(params) if Rails.env.development?
-    .debug-dump= 'Tags       ' + debug(current_user.tasks.find(17).tags.all) if Rails.env.development?
     
 
 
