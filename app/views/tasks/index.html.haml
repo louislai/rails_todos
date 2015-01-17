@@ -8,13 +8,14 @@
 =render "popup_form"
 .alert-box.warning#pending_toggle{style: "margin-bottom: 0"}
   Pending Tasks
-%table#pending.radius
+%table#pending.radius.yolo{style: "border-style: solid; border-color: orange"}
   %thead
-    %th{width: "5%"} Done
-    %td{width: "25%"} Task
-    %td{width: "40%"} Deadline
-    %td{width: "40%"} Tags
-    %td{width: "35%"} Delete
+    %tr
+      %td{width: "5%"} Done
+      %td{width: "25%"} Task
+      %td{width: "40%"} Deadline
+      %td{width: "40%"} Tags
+      %td{width: "35%"} Delete
   - if @tasks_incomplete.empty?
     %tbody 
       %tr
@@ -26,13 +27,14 @@
 %br
 .alert-box.success#completed_toggle{style: "margin-bottom: 0"}
   Completed Tasks
-%table#completed.radius
+%table#completed.radius.yolo{style: "border-style: solid; border-color: green"}
   %thead
-    %th{width: "5%"} Done
-    %td{width: "25%"} Task
-    %td{width: "40%"} Deadline
-    %td{width: "40%"} Tags
-    %td{width: "35%"} Delete
+    %tr
+      %td{width: "5%"} Done
+      %td{width: "25%"} Task
+      %td{width: "40%"} Deadline
+      %td{width: "40%"} Tags
+      %td{width: "35%"} Delete
   %tbody
     - @tasks_complete.each do |task|
       = render 'task', task: task

@@ -25,6 +25,7 @@ $(document).ready(function(){
 
   // For quick add task form submission
   $('#task_submit_dummy').click(function() {
+    
     $('form#quick_add_task').submit();
   });
 
@@ -32,16 +33,17 @@ $(document).ready(function(){
     if(e.keyCode == 13){
       $('form#quick_add_task').submit();
     }
-})
+  })
+
   // Open quote
   $('#inspirator').click(function() {
+    alert('dfadsfadsafdfsdfsdfda');
     $('#randomQuote').slideToggle();
   })
 
   // Toggle quick add task
   $('#quick_add').click(function() {
     $('#quick_add_task').slideToggle();
-    event.stopPropagation();
   })
 
   // Pending task area
@@ -70,5 +72,7 @@ $(document).ready(function(){
 
   /* Activating Best In Place */
   jQuery(".best_in_place").best_in_place();
+
+  
   
 });

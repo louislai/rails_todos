@@ -4,8 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks_incomplete = Task.where("completed = 'f'").order('created_at DESC')
-    @tasks_complete = Task.where("completed = 't'").order('created_at DESC')
+    set_complete_incomplete
   end
 
 
@@ -28,7 +27,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to user_tasks_path(current_user), success: 'Task was successfully created.'
     else
-      @tasks = @user.tasks.order('created_at DESC').all
+      set_complete_incomplete
       render action: :index
     end
 
@@ -56,6 +55,10 @@ class TasksController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_complete_incomplete
+      @tasks_incomplete = Task.where("completed = 'f'").order('created_at DESC')
+      @tasks_complete = Task.where("completed = 't'").order('created_at DESC')
+    end
     def set_user
       @user = User.find(params[:user_id])
     end
