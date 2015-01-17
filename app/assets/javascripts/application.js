@@ -46,7 +46,12 @@ $(document).ready(function(){
 
   // Pending task area
   $('#pending_toggle').click(function() {
-    $('#pending').slideToggle(500);
+    $('#pending').slideToggle(200);
+  })
+
+  // Completed task area
+  $('#completed_toggle').click(function() {
+    $('#completed').slideToggle(200);
   })
 
   // Toggle tag input popover form

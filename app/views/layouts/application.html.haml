@@ -31,9 +31,8 @@
           = render 'layouts/off_canvas_list' if logged_in?
         %section.main-section
           %hr
-          = render 'layouts/inspirator'
-          - flash.each do |message_type, message|
-            %div{:class => "alert-box #{message_type} radius"}= message
+          = render 'layouts/flash'
+          = render 'layouts/inspirator'        
           .row.page-wrap
             .small-10.columns.small-centered
               = yield
