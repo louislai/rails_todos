@@ -4,7 +4,8 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.order('created_at DESC').all
+    @tasks_incomplete = Task.where("completed = 'f'").order('created_at DESC')
+    @tasks_complete = Task.where("completed = 't'").order('created_at DESC')
   end
 
 
@@ -40,7 +41,7 @@ class TasksController < ApplicationController
     set_task
     respond_to do |format|
       if @task.update!(task_params) 
-        format.json { respond_with_bip(@ttask) }
+        format.json { respond_with_bip(@task) }
       end
     end
   end

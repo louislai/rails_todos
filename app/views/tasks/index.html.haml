@@ -6,15 +6,36 @@
     .button.tiny
       %i.fa.fa-arrow-down
 =render "popup_form"
-.alert-box.warning#pending_toggle.radius Pending Tasks
-- if @tasks.empty?
-  %span There are no tasks!
-- else
-  %table#pending.radius
+.alert-box.warning#pending_toggle.radius 
+  Pending Tasks
+%table#pending.radius
+  %thead
+    %th{width: "5%"} Done
+    %td{width: "25%"} Task
+    %td{width: "40%"} Deadline
+    %td{width: "40%"} Tags
+    %td{width: "35%"} Delete
+  - if @tasks_incomplete.empty?
+    %tbody 
+      %tr
+        %th No unfinished tasks!
+  - else
     %tbody
-      - @tasks.each do |task|
+      - @tasks_incomplete.each do |task|
         = render 'task', task: task
 %br
-.alert-box.success.radius Completed Tasks
+.alert-box.success.radius 
+  Completed Tasks
+%table#completed.radius
+  %thead
+    %th{width: "5%"} Done
+    %td{width: "25%"} Task
+    %td{width: "40%"} Deadline
+    %td{width: "40%"} Tags
+    %td{width: "35%"} Delete
+  %tbody
+    - @tasks_complete.each do |task|
+      = render 'task', task: task
+%br
    
   
