@@ -10,8 +10,6 @@ class TagsController < ApplicationController
   # GET /tags/1
   # GET /tags/1.json
   def show
-    set_task_for_show
-    render 'tasks/index'
   end
 
   # GET /tags/new
@@ -27,7 +25,7 @@ class TagsController < ApplicationController
     respond_to do |format|
       if @tag.save
         format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
-        format.json { respond_with_bip(@tag) }
+        format.json { render :show, status: :created, location: @tag }
       else
         format.html { render :new }
         format.json { render json: @tag.errors, status: :unprocessable_entity }
@@ -41,7 +39,7 @@ class TagsController < ApplicationController
     respond_to do |format|
       if @tag.update(tag_params)
         format.html { redirect_to @tag, notice: 'Tag was successfully updated.' }
-        format.json { respond_with_bip(@tag) }
+        format.json { render :show, status: :ok, location: @tag }
       else
         format.html { render :edit }
         format.json { render json: @tag.errors, status: :unprocessable_entity }
@@ -55,17 +53,11 @@ class TagsController < ApplicationController
     @tag.destroy
     respond_to do |format|
       format.html { redirect_to tags_url, notice: 'Tag was successfully destroyed.' }
-      format.json { respond_with_bip(@tag) }
+      format.json { head :no_content }
     end
   end
 
   private
-    def set_task_for_show
-      tasks = current_user.tags.find(params[:id]).tasks
-      @tasks_incomplete = tasks.where("completed = 'f'").order('created_at DESC')
-      @tasks_complete = tasks.where("completed = 't'").order('created_at DESC')
-    end
-
     # Use callbacks to share common setup or constraints between actions.
     def set_tag
       @tag = Tag.find(params[:id])

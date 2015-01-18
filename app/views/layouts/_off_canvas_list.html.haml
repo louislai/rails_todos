@@ -5,6 +5,5 @@
     = link_to "All Tags", user_tags_path(current_user)
   - tags = current_user.tags.all
   - tags.each do |tag|
-    - if !tag.tasks.empty?
-      %li 
-        =link_to tag.name, user_tag_path(current_user, tag)
+    %li
+      %a{href: '#'}=tag.name

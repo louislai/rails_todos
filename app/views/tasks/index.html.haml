@@ -5,7 +5,7 @@
   %li#quick_add
     .button.tiny
       %i.fa.fa-arrow-down
-=render "tasks/popup_form"
+=render "popup_form"
 .alert-box.warning.rounded_top#pending_toggle{style: "margin-bottom: 0"}
   Pending Tasks
 %table#pending_tbl.yolo{style: "border-style: solid; border-color: orange; margin-bottom: 0"}
@@ -40,7 +40,7 @@
     %tr#completed_nil{hidden: (@tasks_complete.empty?) ? nil : "" }
       %td{:colspan => "5"} NIL     
     - @tasks_complete.each do |task|
-      = render 'tasks/task', task: task
+      = render 'task', task: task
 .alert-box.success.rounded_bottom{style: "margin-top: 0"}
   %span#completed_count= @tasks_complete.count
   %span completed 
