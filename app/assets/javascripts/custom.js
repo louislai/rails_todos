@@ -1,5 +1,6 @@
 $(document).ready(function(){
-
+  $.ajaxSetup({ cache: true });
+  
   // For quick add task form submission
   $('#task_submit_dummy').click(function() {
     

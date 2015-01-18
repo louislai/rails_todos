@@ -10,13 +10,5 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require jquery-ui
-//= require jquery.purr
-//= require best_in_place
-//= require foundation
-//= require jquery-popover
-//= require_tree .
 
 $(function(){ $(document).foundation(); });
