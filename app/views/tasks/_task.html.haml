@@ -1,18 +1,13 @@
 
 %tr
-  %td.toggle_complete{width: "5%"}
+  %td.text-center.toggle_complete{width: "5%"}
     .yeah= best_in_place [current_user, task], :completed, as: :checkbox, collection: [raw('<i class="fa fa-square-o"></i>'), raw('<i class="fa fa-check-square-o"></i>')]
   %td{width: "25%"}
     = best_in_place [current_user, task], :task
   %td{width: "40%"}
     = best_in_place [current_user, task], :deadline, as: :date
   %td{width: "40%"}
-    = best_in_place [current_user, task], :all_tags, :nil => "No Tags"
-  %td{width: "35%"}
-    %ul.inline-list
-      %li
-        = link_to edit_user_task_path(current_user, task) do
-          %i.fa.fa-edit
-      %li
-        = link_to [current_user, task], method: :delete, data: { confirm: 'Are you sure?' } do
-          %i.fa.fa-trash
+    = best_in_place [current_user, task], :all_tags, :nil => "Click me to add content!"
+  %td.text-center{width: "30%"}
+    = link_to [current_user, task], method: :delete, data: { confirm: 'Are you sure?' } do
+      %i.fa.fa-trash

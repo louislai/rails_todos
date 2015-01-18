@@ -2,7 +2,7 @@
   %li
     %label Tags
   %li
-    %a{href: "#"} All Tags
+    = link_to "All Tags", user_tags_path(current_user)
   - tags = current_user.tags.all
   - tags.each do |tag|
     %li

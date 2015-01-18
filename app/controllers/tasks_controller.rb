@@ -23,7 +23,7 @@ class TasksController < ApplicationController
   def create
     set_user
     @task = @user.tasks.new(task_params)
-
+    flash[:info] = @task   
     if @task.save
       redirect_to user_tasks_path(current_user), success: 'Task was successfully created.'
     else
@@ -39,7 +39,7 @@ class TasksController < ApplicationController
   def update
     set_task
     respond_to do |format|
-      if @task.update!(task_params) 
+      if @task.update!(task_params)
         format.json { respond_with_bip(@task) }
       end
     end

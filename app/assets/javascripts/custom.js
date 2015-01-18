@@ -42,16 +42,37 @@ $(document).ready(function(){
   $('#completed').on('ajax:success', '[data-bip-attribute="completed"]', function(e) {
     var row = $(e.target).closest('tr');
     row.prependTo('#pending_tbl tbody').slideDown();
-    $('#completed_count').html(parseInt($('#completed_count').html()) - 1);
-    $('#pending_count').html(parseInt($('#pending_count').html()) + 1);
+
+    var cur_completed_count = parseInt($('#completed_count').html());
+    cur_completed_count--;
+    $('#completed_count').html(cur_completed_count);
+    $('#completed_pluralized').html(pluralize_task(cur_completed_count));
+
+
+    var cur_pending_count = parseInt($('#pending_count').html());
+    cur_pending_count++;
+    $('#pending_count').html(cur_pending_count);
+    $('#pending_pluralized').html(pluralize_task(cur_pending_count));
+
+    handle_task_nil(cur_pending_count, cur_completed_count);
 
   });
 
   $('#pending').on('ajax:success', '[data-bip-attribute="completed"]', function(e) {
     var row = $(e.target).closest('tr');
     row.prependTo('#completed_tbl tbody').slideDown();
-    $('#pending_count').html(parseInt($('#pending_count').html()) - 1);
-    $('#completed_count').html(parseInt($('#completed_count').html()) + 1);
+    
+    var cur_completed_count = parseInt($('#completed_count').html());
+    cur_completed_count++;
+    $('#completed_count').html(cur_completed_count);
+    $('#completed_pluralized').html(pluralize_task(cur_completed_count));
+
+    var cur_pending_count = parseInt($('#pending_count').html());
+    cur_pending_count--;
+    $('#pending_count').html(cur_pending_count);
+    $('#pending_pluralized').html(pluralize_task(cur_pending_count));
+
+    handle_task_nil(cur_pending_count, cur_completed_count);
   });
 
 
@@ -59,3 +80,20 @@ $(document).ready(function(){
 });
 
 $('.best_in_place').best_in_place();
+
+function pluralize_task(count) {
+  return count == 1 ? 'task' : 'tasks';
+}
+
+function handle_task_nil(pending_count, completed_count) {
+  if (pending_count === 0) {
+    $('#pending_nil').show();
+  } else {
+    $('#pending_nil').hide();
+  }
+  if (completed_count === 0) {
+    $('#completed_nil').show();
+  } else {
+    $('#completed_nil').hide();
+  }
+}

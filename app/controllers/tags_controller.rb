@@ -4,7 +4,7 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
-    @tags = Tag.all
+    redirect_to user_tasks_path(current_user)
   end
 
   # GET /tags/1
@@ -15,10 +15,6 @@ class TagsController < ApplicationController
   # GET /tags/new
   def new
     @tag = Tag.new
-  end
-
-  # GET /tags/1/edit
-  def edit
   end
 
   # POST /tags
