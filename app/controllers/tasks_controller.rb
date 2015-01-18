@@ -22,8 +22,7 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     set_user
-    @task = @user.tasks.new(task_params)
-    flash[:info] = @task   
+    @task = @user.tasks.new(task_params)   
     if @task.save
       respond_to do |format|
         format.js {}
@@ -43,6 +42,7 @@ class TasksController < ApplicationController
     set_task
     respond_to do |format|
       if @task.update!(task_params)
+        format.html
         format.json { respond_with_bip(@task) }
       end
     end

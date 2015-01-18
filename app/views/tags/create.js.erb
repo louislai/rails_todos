@@ -1,1 +1,2 @@
-$("<%= escape_javascript(render @tag) %>").appendTo('#tag_list').show();
+var tag = $('<%= escape_javascript(render @tag) %>')
+tag.appendTo('ul#tag_list');

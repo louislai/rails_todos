@@ -17,6 +17,8 @@ function check_page(pages) {
         return "login";
       case "signup":
         return "signup";
+      case "tags":
+        return "tasks";
       case "users": 
         return "users";
       case "tasks":

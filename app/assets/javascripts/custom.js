@@ -1,3 +1,6 @@
+
+// Custom
+
 $(document).ready(function(){
 
   // For quick add task form submission

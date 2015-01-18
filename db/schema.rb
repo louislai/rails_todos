@@ -30,16 +30,6 @@ ActiveRecord::Schema.define(version: 20150116045445) do
   add_index "tags_tasks", ["tag_id", "task_id"], name: "index_tags_tasks_on_tag_id_and_task_id"
   add_index "tags_tasks", ["task_id", "tag_id"], name: "index_tags_tasks_on_task_id_and_tag_id"
 
-  create_table "tasklists", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "tasklists", ["user_id"], name: "index_tasklists_on_user_id"
-
   create_table "tasks", force: :cascade do |t|
     t.date     "deadline"
     t.boolean  "completed",  default: false

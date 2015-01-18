@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-	has_many :tasklists, inverse_of: :user, dependent: :destroy
 	has_many :tasks, dependent: :destroy
 	has_many :tags, dependent: :destroy, through: :tasks
 
