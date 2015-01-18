@@ -1,7 +1,6 @@
 .reveal-modal{"data-reveal" => "", "id" => "modal#{id}"}  
-  %h1 
-    =title
-  = simple_form_for(@task, remote: true, method: method, url: {action: mode}) do |f|
+  %h1 Edit Task
+  = simple_form_for(edit_user_task_path(current_user, task), remote: true) do |f|
     - if @task.errors.any?
       #error_explanation
         %h2
@@ -15,4 +14,4 @@
     = f.input :deadline, input_html: {style: 'width: 25%'}, start: nil, include_blank: true
     %br
     %br
-    = f.button :submit, value: submit_value
+    = f.button :submit, value: "Update"

@@ -91,8 +91,12 @@ $(document).ready(function(){
   });
 
   // Close create task modal on submit
-  $('#submitCreateTask').click(function() {
-    $("#modalCreateTask").foundation('reveal','close');
+  $('.reveal-modal').on('ajax:success', function(e) {
+    $(e.target).foundation('reveal', 'close');
+  });
+
+  $(document).bind('ajaxError', '#modalCreateTask', function(event, jqxhr, settings, exception){
+    alert('Requirements:\nThere should be a task\nAll fields of deadline should all be set or all left blank');
   });
 });
 
@@ -114,3 +118,4 @@ function handle_task_nil(pending_count, completed_count) {
     $('#completed_nil').hide();
   }
 }
+
