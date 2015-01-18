@@ -15,7 +15,7 @@
  *= require jquery-ui
  *= require font-awesome
  *= require foundation_and_overrides
- *= require custom
+
  */
 
 @import "font-awesome";
@@ -120,22 +120,4 @@ h6#inspirator_wrapper {
     -ms-transform: translate(-50%, -50%);
 }
 */
-
-#completed_toggle {
-  cursor: pointer;
-}
-
-.rounded_top {
-  -moz-border-radius-topright: 20px;
-  border-top-right-radius: 20px;
-  -moz-border-radius-topleft: 20px;
-  border-top-left-radius: 20px;
-}
-
-.rounded_bottom {
-  -moz-border-radius-bottomright: 20px;
-  border-bottom-right-radius: 20px;
-  -moz-border-radius-bottomleft: 20px;
-  border-bottom-left-radius: 20px;
-}
 
