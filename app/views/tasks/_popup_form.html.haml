@@ -1,6 +1,6 @@
 - @task = current_user.tasks.new
 
-= simple_form_for(@task, url: {action: :create}, html: {class: "row collapse", hidden: false, id: "quick_add_task"}) do |f|
+= simple_form_for(@task, remote: true, url: {action: :create}, html: {class: "row collapse", hidden: false, id: "quick_add_task"}) do |f|
   .small-1.columns
     %a#tag_trigger.button.prefix.radius{href: "#popovertag"}
       %i.fa.fa-tags.white

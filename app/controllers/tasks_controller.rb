@@ -25,7 +25,10 @@ class TasksController < ApplicationController
     @task = @user.tasks.new(task_params)
     flash[:info] = @task   
     if @task.save
-      redirect_to user_tasks_path(current_user), success: 'Task was successfully created.'
+      respond_to do |format|
+        format.js {}
+        format.html {redirect_to user_tasks_path(current_user), success: 'Task was successfully created.'}
+      end
     else
       set_complete_incomplete
       render action: :index
@@ -49,8 +52,10 @@ class TasksController < ApplicationController
   # DELETE /tasks/1.json
   def destroy
     @task.destroy
-    redirect_to user_tasks_url(current_user)
-    flash[:info] = 'Task was successfully deleted.'
+    respond_to do |format|
+      format.js {}    
+    end
+    flash.now[:info] = 'Task was successfully deleted.'
   end
 
   private

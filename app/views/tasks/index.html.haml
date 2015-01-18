@@ -20,7 +20,7 @@
     %tr#pending_nil{hidden: (@tasks_incomplete.empty?) ? nil : "" }
       %td{colspan: 5} NIL 
     - @tasks_incomplete.each do |task|
-      = render 'task', task: task 
+      = render 'tasks/task', task: task 
 .alert-box.warning.rounded_bottom{style: "margin-top: 0"}
   %span#pending_count= @tasks_incomplete.count
   %span pending 

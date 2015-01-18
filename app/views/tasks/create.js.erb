@@ -1,1 +1,6 @@
-alert('fgdf');
+var new_task = $("<%= escape_javascript(render @task) %>");
+new_task.prependTo('#pending_tbl tbody').slideDown();
+var cur_pending_count = parseInt($('#pending_count').html());
+cur_pending_count++;
+$('#pending_count').html(cur_pending_count);
+$('#pending_pluralized').html(pluralize_task(cur_pending_count));

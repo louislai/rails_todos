@@ -28,6 +28,7 @@ class TagsController < ApplicationController
       if @tag.save
         format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
         format.json { respond_with_bip(@tag) }
+        format.js {}
       else
         format.html { render :new }
         format.json { render json: @tag.errors, status: :unprocessable_entity }
