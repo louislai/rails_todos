@@ -1,15 +1,18 @@
-= simple_form_for(@task, url: {action: mode}) do |f|
-  - if @task.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@task.errors.count, "error")
-        prohibited this task from being saved:
-      %ul
-        - @task.errors.full_messages.each do |message|
-          %li= message
-  = f.input :task, input_html: {style: 'width: 76%'}
-  = f.input :all_tags, input_html: {style: 'width: 76%'}
-  = f.input :deadline, input_html: {style: 'width: 25%'}, start: nil, include_blank: true
-  %br
-  %br
-  = f.button :submit, value: submit_value
+#modalCreateTask.reveal-modal{"data-reveal" => ""}  
+  %h1 
+    =title
+  = simple_form_for(@task, remote: true, url: {action: mode}) do |f|
+    - if @task.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@task.errors.count, "error")
+          prohibited this task from being saved:
+        %ul
+          - @task.errors.full_messages.each do |message|
+            %li= message
+    = f.input :task, input_html: {style: 'width: 76%'}
+    = f.input :all_tags, input_html: {style: 'width: 76%'}
+    = f.input :deadline, input_html: {style: 'width: 25%'}, start: nil, include_blank: true
+    %br
+    %br
+    #submitCreateTask= f.button :submit, value: submit_value

@@ -80,11 +80,20 @@ $(document).ready(function(){
     $('#pending_count').html(cur_pending_count);
     $('#pending_pluralized').html(pluralize_task(cur_pending_count));
 
-    handle_task_nil(cur_pending_count, cur_completed_count);
+    handle_task_nil(cur_pending_count, cur_completed_count);   
   });
 
+  // Focus on reveal modal
+  $(document).foundation('reveal', {
+    opened: function(event) {
+      $(event.target).find('input').first().focus();
+    }
+  });
 
-  
+  // Close create task modal on submit
+  $('#submitCreateTask').click(function() {
+    $("#modalCreateTask").foundation('reveal','close');
+  });
 });
 
 $('.best_in_place').best_in_place();

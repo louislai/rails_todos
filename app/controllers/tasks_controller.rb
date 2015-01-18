@@ -33,7 +33,6 @@ class TasksController < ApplicationController
     if @task.save
       respond_to do |format|
         format.js {}
-        format.html {redirect_to user_tasks_path(current_user), success: 'Task was successfully created.'}
       end
     else
       set_complete_incomplete

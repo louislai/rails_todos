@@ -1,11 +1,14 @@
 %p#notice= notice
 %h1 Tasks
 %ul.button-group.round
-  %li= link_to 'New Task', new_user_task_path, class: "button tiny"
+  %li
+    %a.button.tiny{"data-reveal-id" => "modalCreateTask", :href => ""} 
+      New Task
   %li#quick_add
     .button.tiny
       %i.fa.fa-arrow-down
 =render "tasks/popup_form"
 =render "tasks/tasks"
+=render "tasks/form", mode: :create, submit_value: "Create", title: "New Task"
    
   
