@@ -5,9 +5,14 @@
   %td{width: "25%"}
     = best_in_place [current_user, task], :task
   %td{width: "40%"}
-    = best_in_place [current_user, task], :deadline, as: :date
+    = task.deadline || "No Deadline"
   %td{width: "40%"}
-    = best_in_place [current_user, task], :all_tags, :nil => "Click me to add content!"
+    = task.all_tags == '' ?  "No Tags" : task.all_tags 
   %td.text-center{width: "30%"}
-    = link_to [current_user, task], remote: true, method: :delete, class: 'delete_task', data: { confirm: 'Are you sure?' } do
-      %i.fa.fa-trash
+    %ul.inline-list
+      %li
+        = link_to edit_user_task_path(current_user, task) do
+          %i.fa.fa-edit
+      %li
+        = link_to [current_user, task], remote: true, method: :delete, class: 'delete_task', data: { confirm: 'Are you sure?' } do
+          %i.fa.fa-trash
