@@ -32,7 +32,9 @@
       %ul.left
         %li.has-form.row.collapse
           .large-8.small-9.columns
-            %input{:placeholder => "Find Tasks", :type => "text"}     
+            #search_form
+              = form_tag(user_tasks_path(current_user), method: :get) do
+                = text_field_tag :query, params[:query], placeholder: "Search tasks"
           .large-4.small-3.columns
-            %a.button.expand{:href => "#"} Search
+            #search_submit.button.expand Search
 

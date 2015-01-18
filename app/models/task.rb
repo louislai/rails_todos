@@ -12,4 +12,13 @@ class Task < ActiveRecord::Base
   def all_tags
     self.tags.map(&:name).join(", ")
   end
+
+  def self.search(query)
+    if query.blank?
+      scoped
+    else
+      q = "%#{query}%"
+      joins(:tags).where("task like ? or tags.name like ?", q, q).uniq
+    end
+  end
 end

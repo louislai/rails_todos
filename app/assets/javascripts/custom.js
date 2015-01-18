@@ -4,9 +4,14 @@
 $(document).ready(function(){
 
   // For quick add task form submission
-  $('#task_submit_dummy').click(function() {
-    
+  $('#task_submit_dummy').click(function() {    
     $('form#quick_add_task').submit();
+  });
+
+  // Search form submission
+  $('#search_submit').click(function() {
+    
+    $('form#search_form').submit();
   });
 
   // $('#task_task').keydown(function (e){
