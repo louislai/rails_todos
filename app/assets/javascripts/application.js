@@ -20,3 +20,50 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(document).ready(function(){
+
+  // For quick add task form submission
+  $('#task_submit_dummy').click(function() {
+    $('form#quick_add_task').submit();
+  });
+
+  $('#task_task').keydown(function (e){
+    if(e.keyCode == 13){
+      $('form#quick_add_task').submit();
+    }
+})
+  // Open quote
+  $('#inspirator').click(function() {
+    $('#randomQuote').slideToggle();
+  })
+
+  // Toggle quick add task
+  $('#quick_add').click(function() {
+    $('#quick_add_task').slideToggle();
+    event.stopPropagation();
+  })
+
+  // Pending task area
+  $('#pending_toggle').click(function() {
+    $('#pending').slideToggle(500);
+  })
+
+  // Toggle tag input popover form
+  $('#tag_trigger').popover({
+    my: 'center top',
+    at: 'center bottom',
+    offset: '-5px -50px'
+  });
+
+  // Toggle calendar input popover form
+  $('#calendar_trigger').popover({
+    my: 'center top',
+    at: 'center bottom',
+    offset: '-5px -50px'
+  });
+
+  /* Activating Best In Place */
+  jQuery(".best_in_place").best_in_place();
+  
+});

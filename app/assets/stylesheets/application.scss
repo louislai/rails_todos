@@ -12,12 +12,15 @@
  *
  *= require_tree .
  *= require_self
+ //= require foundation_and_overrides
+
  *= require jquery-ui
  *= require font-awesome
  *= require foundation_and_overrides
 
  */
 
+@import "foundation_and_overrides";
 @import "font-awesome";
 
 /* Make footer fixed to bottom */
