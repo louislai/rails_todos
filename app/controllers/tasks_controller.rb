@@ -53,7 +53,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.js {}    
+      format.js { render layout: false}    
     end
     flash.now[:info] = 'Task was successfully deleted.'
   end

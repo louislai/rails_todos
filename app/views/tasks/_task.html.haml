@@ -9,5 +9,5 @@
   %td{width: "40%"}
     = best_in_place [current_user, task], :all_tags, :nil => "Click me to add content!"
   %td.text-center{width: "30%"}
-    = link_to [current_user, task], remote: true, method: :delete, data: { confirm: 'Are you sure?' } do
+    = link_to [current_user, task], remote: true, method: :delete, class: 'delete_task', data: { confirm: 'Are you sure?' } do
       %i.fa.fa-trash

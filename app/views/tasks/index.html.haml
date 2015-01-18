@@ -36,7 +36,7 @@
       %td{width: "40%"} Deadline
       %td{width: "40%"} Tags
       %td{width: "35%"} Delete
-  %tbody#completed
+  %tbody#completed{hidden: ""}
     %tr#completed_nil{hidden: (@tasks_complete.empty?) ? nil : "" }
       %td{:colspan => "5"} NIL     
     - @tasks_complete.each do |task|

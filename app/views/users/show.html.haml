@@ -7,5 +7,5 @@
   %strong Name:
   = @user.first_name + ' ' + @user.last_name
 %p
-  You have #{pluralize(current_user.tasks.count, 'task')} and #{pluralize(current_user.tags.count, 'tag')}
+  You have #{pluralize(current_user.tasks.count, 'task')} (#{current_user.tasks.where("completed = 'f'").count} pending and #{current_user.tasks.where("completed = 't'").count} completed) and #{pluralize(current_user.tags.count, 'tag')}
 \#{link_to 'Back', user_tasks_path(current_user)}
