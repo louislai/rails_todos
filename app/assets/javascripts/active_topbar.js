@@ -23,6 +23,12 @@ function check_page(pages) {
         return "users";
       case "tasks":
         return "tasks";
+      case "about":
+        return "about";
+      case "help":
+        return "help";
+      case "faqs":
+        return "help";
     }
   }
   return "login";
