@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.purr
@@ -18,6 +19,7 @@
 //= require foundation
 //= require jquery-popover
 //= require_tree .
+//= require turbolinks
 
 $(function(){ $(document).foundation(); });
 

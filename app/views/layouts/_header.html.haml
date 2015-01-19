@@ -3,7 +3,7 @@
     %ul.right   
       - if logged_in?
         
-        %li.has-dropdown#tasks.hvr-pop
+        %li.has-dropdown#tasks.hvr-grow
           %a.dropdown-toggle{:href => "#"}
             Tasks
           %ul.dropdown
@@ -16,7 +16,7 @@
         /     - tags = current_user.tags.all
         /     - tags.each do |tag|
         /       = render 'tags/tag', tag: tag
-        %li.has-dropdown#users.hvr-pop
+        %li.has-dropdown#users.hvr-grow
           %a.dropdown-toggle{:href => "#"}
             Account  
           %ul.dropdown
