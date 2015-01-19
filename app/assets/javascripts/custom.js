@@ -86,7 +86,7 @@ $(document).ready(function(){
   // Focus on reveal modal
   $(document).foundation('reveal', {
     opened: function(event) {
-      $(event.target).find('input').first().focus();
+      $(event.target).last().focus();
     }
   });
 

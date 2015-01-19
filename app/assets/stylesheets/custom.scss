@@ -18,10 +18,20 @@
   border-bottom-left-radius: 20px;
 }
 
-.reveal-modal-bg, .reveal-modal {
+.reveal-modal-bg {
   position: fixed;
+}
+
+.reveal-modal{
+  position: absolute;
+  margin-top: 0;
+  z-index:200000000 !important; 
 }
 
 .toggle_complete {
   cursor: pointer;
+}
+
+.restyle_margin {
+  margin-bottom: 0;
 }

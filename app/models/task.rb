@@ -14,7 +14,8 @@ class Task < ActiveRecord::Base
   end
 
   def raw_date=(name)
-    self.deadline = Chronic.parse(name).strftime('%d-%m-%Y') if (name && name != '')
+    deadline = Chronic.parse(name) if (name)
+    self.deadlin = deadline.strftime('%d-%m-%Y') if deadline
   end
 
   def raw_date
