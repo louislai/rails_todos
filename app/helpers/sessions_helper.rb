@@ -50,4 +50,22 @@ module SessionsHelper
   def current_user?(user)
     user == current_user
   end
+
+  # Confirms a logged-in user.
+  def logged_in_user
+    unless logged_in?
+      flash[:alert] = "Please log in."
+      redirect_to login_url
+    end
+  end
+
+  # Check for correct user privilege
+  def correct_user_aux
+    @user = User.find_by_id(params[:user_id])
+    if @user
+      redirect_to(user_tasks_path(current_user)) unless current_user?(@user)
+    else
+      redirect_to(user_tasks_path(current_user)) unless current_user?(@user)
+    end
+  end
 end

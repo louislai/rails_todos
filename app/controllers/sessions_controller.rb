@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    redirect_to current_user if logged_in?
+    redirect_to user_tasks_path(current_user) if logged_in?
   end
 
   def create
