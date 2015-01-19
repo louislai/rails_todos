@@ -9,6 +9,9 @@ gem 'jquery-ui-rails'
 gem 'best_in_place', '~> 3.0.1'
 gem 'chronic'
 
+
+# Set ruby version
+ruby '2.1.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record for development
