@@ -5,7 +5,7 @@
   %td{width: "25%"}
     = best_in_place [current_user, task], :task
   %td{width: "40%"}
-    = task.deadline || "No Deadline"
+    = task.deadline ? task.deadline.strftime('%d-%m-%Y') : "No Deadline"
   %td{width: "40%"}
     = task.all_tags == '' ?  "No Tags" : task.all_tags 
   %td.text-center{width: "30%"}

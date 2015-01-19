@@ -7,6 +7,7 @@ gem "font-awesome-rails"
 gem 'jquery-popover'
 gem 'jquery-ui-rails'
 gem 'best_in_place', '~> 3.0.1'
+gem 'chronic'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

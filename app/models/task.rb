@@ -13,6 +13,14 @@ class Task < ActiveRecord::Base
     self.tags.map(&:name).join(", ")
   end
 
+  def raw_date=(name)
+    self.deadline = Chronic.parse(name).strftime('%d-%m-%Y') if name
+  end
+
+  def raw_date
+    self.deadline.strftime('%d-%m-%Y') if self.deadline
+  end
+
   def self.search(query)
     if query.blank?
       scoped
