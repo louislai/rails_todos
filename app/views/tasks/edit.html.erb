@@ -1,6 +1,3 @@
-<h1>Editing Task</h1>
+<%= render 'form', mode: :edit, submit_value: "Edit", title: "Edit Task", modalOn: false %>
 
-<%= render 'form', mode: :edit, submit_value: "Edit", title: "Edit Task" %>
-
-<%= link_to 'Show', [current_user, @task] %> |
 <%= link_to 'Back', user_tasks_path(current_user) %>

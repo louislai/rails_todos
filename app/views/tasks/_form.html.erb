@@ -1,0 +1,30 @@
+<div <%= raw('id="modalCreateTask" class="reveal-modal" data-reveal') if modalOn %> >
+  <h1>
+    <%= title %>
+  </h1>
+  <%= simple_form_for(@task, remote: true, url: {action: mode}) do |f| %>
+    <% if @task.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@task.errors.count, "error") %>
+          prohibited this task from being saved:
+        </h2>
+        <ul>
+          <% @task.errors.full_messages.each do |message| %>
+            <li>
+              <%= message %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= f.input :task, input_html: {style: 'width: 76%'} %>
+    <%= f.input :all_tags, input_html: {style: 'width: 76%'} %>
+    <%= f.input :deadline, input_html: {style: 'width: 25%'}, start: nil, include_blank: true %>
+    <br/>
+    <br/>
+    <div id="submitCreateTask">
+      <%= f.button :submit, value: submit_value %>
+    </div>
+  <% end %>
+</div>

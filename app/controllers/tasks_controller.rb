@@ -32,13 +32,11 @@ class TasksController < ApplicationController
     @task = @user.tasks.new(task_params)   
     if @task.save
       respond_to do |format|
-        format.html
         format.js {}
       end
     else
-      format.js   { render json: @task.errors, status: :unprocessable_entity }
-      # set_complete_incomplete
-      # render action: :index
+      set_complete_incomplete
+      render action: :index
     end
 
   end
@@ -52,9 +50,6 @@ class TasksController < ApplicationController
       if @task.update!(task_params)
         format.html
         format.json { respond_with_bip(@task) }
-        format.js
-      else
-        format.js   { render json: @task.errors, status: :unprocessable_entity }
       end
     end
   end

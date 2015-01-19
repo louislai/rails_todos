@@ -1,6 +1,5 @@
 
 %tr
-  =render "tasks/edit_form", id: task.id, task: task
   %td.text-center.toggle_complete{width: "5%"}
     .yeah= best_in_place [current_user, task], :completed, as: :checkbox, collection: [raw('<i class="fa fa-square-o"></i>'), raw('<i class="fa fa-check-square-o"></i>')]
   %td{width: "25%"}
@@ -12,7 +11,7 @@
   %td.text-center{width: "30%"}
     %ul.inline-list
       %li
-        %a{"data-reveal-id" => "modal#{task.id}", :href => ""} 
+        = link_to edit_user_task_path(current_user, task) do
           %i.fa.fa-edit
       %li
         = link_to [current_user, task], remote: true, method: :delete, class: 'delete_task', data: { confirm: 'Are you sure?' } do
