@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     resources :tags, only: [:create, :show, :new]
   end
 
-  
 
   get 'signup' => 'users#new'
   get    'login'   => 'sessions#new'

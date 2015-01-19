@@ -2,7 +2,7 @@
   %li
     %label Tags
   %li
-    = link_to "All Tags", user_tags_path(current_user)
-  - tags = current_user.tags.all
+    = link_to "All Tags", user_tasks_path(current_user)
+  - tags = current_user.tags.all.includes(:tasks)
   - tags.each do |tag|
     = render 'tags/tag', tag: tag

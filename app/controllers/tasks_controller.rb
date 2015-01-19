@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.all.includes(:tags)
     if params[:query]
       @tasks = @tasks.search(params[:query])
       set_complete_incomplete
@@ -65,8 +65,8 @@ class TasksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_complete_incomplete
-      @tasks_incomplete = @tasks.where("completed = 'f'").order('created_at DESC')
-      @tasks_complete = @tasks.where("completed = 't'").order('created_at DESC')
+      @tasks_incomplete = @tasks.where("completed = 'f'").order('tasks.created_at DESC')
+      @tasks_complete = @tasks.where("completed = 't'").order('tasks.created_at DESC')
     end
     
     def set_user
