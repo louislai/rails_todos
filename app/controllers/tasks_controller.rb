@@ -35,9 +35,6 @@ class TasksController < ApplicationController
       respond_to do |format|
         format.js {}
       end
-    else
-      set_complete_incomplete
-      render action: :index
     end
 
   end

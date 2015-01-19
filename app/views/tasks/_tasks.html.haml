@@ -32,7 +32,7 @@
     %tr#completed_nil{hidden: (@tasks_complete.empty?) ? nil : "" }
       %td{:colspan => "5"} NIL     
     - @tasks_complete.each do |task|
-      = render 'tasks/task', task: task
+      = render 'tasks/task', task: task, id: task.id
 .alert-box.success.rounded_bottom{style: "margin-top: 0"}
   %span#completed_count= @tasks_complete.count
   %span completed 

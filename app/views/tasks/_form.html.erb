@@ -2,14 +2,14 @@
   <h1>
     <%= title %>
   </h1>
-  <div id='error_explanation' hidden>
+  <!-- <div id='error_explanation' hidden>
     <div class='alert-box alert radius'>
       The form contains 1 error
     </div>
     <ul>
       <li>Name of task can't be blank</li>
     </ul>
-  </div>
+  </div> -->
   <%= simple_form_for(@task, remote: true, url: {action: mode}) do |f| %>
     <% if @task.errors.any? %>
       
@@ -28,7 +28,7 @@
       </div>
     <% end %>
     <%= f.input :task, input_html: {} %>
-    <div style= "margin-top: 0" class="error" hidden><small >Name of task can't be blank</small></div>
+    <!-- <div id="error_text" style= "margin-top: 0" class="error" hidden><small >Name of task can't be blank</small></div> -->
     <%= f.input :all_tags, input_html: {} %>
     <%= f.input :raw_date, label: "Deadline", input_html: {} %>
     <br/>
