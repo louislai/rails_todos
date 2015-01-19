@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'static_pages/about'
+  get 'static_pages/help' 
+
+  get 'about' => 'static_pages#about'
+  get 'help' => 'static_pages#help'
+  get 'faqs' => 'static_pages#help'
+
   resources :users, except: [:index, :destroy] do
     resources :tasks, except: :show
     resources :tags, only: [:create, :show, :new]
