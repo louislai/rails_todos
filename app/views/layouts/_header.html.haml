@@ -26,8 +26,8 @@
             %li
               = link_to "Log out", logout_path, method: "delete"
       - else
-        %li#login= link_to "Log in", login_path
-        %li#signup= link_to "Sign up", signup_path
+        %li#login.hvr-grow= link_to "Log in", login_path
+        %li#signup.hvr-grow= link_to "Sign up", signup_path
     - if logged_in?
       %ul.left
         %li.has-form.row.collapse
