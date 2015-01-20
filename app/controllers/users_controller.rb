@@ -33,7 +33,7 @@ class UsersController < ApplicationController
         log_in @user
         format.html do 
           flash[:success] = "Your account has been created successfully!"
-          redirect_to @user
+          redirect_to user_tasks_path(@user)
         end
       else
         format.html { render :new }

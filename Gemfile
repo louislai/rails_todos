@@ -24,6 +24,11 @@ group :production do
   gem 'unicorn',        '4.8.3'
 end
 
+group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+end
+
 # Random quote
 gem 'quoth'
 
