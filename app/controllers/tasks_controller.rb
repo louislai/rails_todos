@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all.includes(:tags)
+    @tasks = @user.tasks.all.includes(:tags)
     if params[:query]
       @tasks = @tasks.search(params[:query])
       set_complete_incomplete

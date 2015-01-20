@@ -17,13 +17,13 @@ class TagsController < ApplicationController
 
   # GET /tags/new
   def new
-    @tag = Tag.new
+    @tag = current_user.tags.new
   end
 
   # POST /tags
   # POST /tags.json
   def create
-    @tag = Tag.new(tag_params)
+    @tag = current_user.tags.new(tag_params)
 
     respond_to do |format|
       if @tag.save
@@ -39,7 +39,7 @@ class TagsController < ApplicationController
 
   private
     def set_task_for_show
-      tasks = current_user.tags.find(params[:id]).tasks
+      tasks = current_user.tags.find(params[:id]).tasks.where('tasks.user_id = ?', current_user.id).includes(:tags)
       @tasks_incomplete = tasks.where("completed = 'f'").order('created_at DESC')
       @tasks_complete = tasks.where("completed = 't'").order('created_at DESC')
     end
